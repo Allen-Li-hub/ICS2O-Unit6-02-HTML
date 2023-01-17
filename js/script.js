@@ -10,23 +10,18 @@
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-Unit5-01-HTML/sw.js", {
-    scope: "/ICS2O-Unit5-01-HTML/",
+  navigator.serviceWorker.register("/ICS2O-Unit6-02-HTML/sw.js", {
+    scope: "/ICS2O-Unit6-02-HTML/",
   })
 }
 
-const randomNumber = Math.floor(Math.random() * 6) + 1
-
-function updateSliderValue(valueFromSlider) {
-  document.getElementById("slider-value").innerHTML = valueFromSlider
-
-  if (valueFromSlider == randomNumber) {
-    document.getElementById("answer").innerHTML =
-      "the answer was, " + randomNumber + "!" + " You got it! Excellent."
+function cookies() {
+  if (localStorage.hits) {
+    localStorage.hits++
+  } else {
+    localStorage.hits = 1
   }
 
-  if (valueFromSlider != randomNumber) {
-    document.getElementById("answer").innerHTML =
-      "Sorry the answer was, " + randomNumber + "!" + " please try again."
-  }
+  document.getElementById("total").innerHTML =
+    "You have click" + localStorage.hits + "!"
 }
